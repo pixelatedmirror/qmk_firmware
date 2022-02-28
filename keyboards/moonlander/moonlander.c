@@ -190,6 +190,8 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
             LED_3 = true;
 #if !defined(CAPS_LOCK_STATUS)
             LED_6 = true;
+#else
+            (void) LED_6;
 #endif
             break;
         case 4:
@@ -201,6 +203,8 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
         case 6:
 #if !defined(CAPS_LOCK_STATUS)
             LED_6 = true;
+#else
+            (void) LED_6;
 #endif
             break;
         default:
