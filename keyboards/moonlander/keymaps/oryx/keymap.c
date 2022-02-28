@@ -30,6 +30,8 @@
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
 
+#include "features/caps_word.h"
+
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
 #define KC_MAC_COPY LGUI(KC_C)
@@ -105,6 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_caps_word(keycode, record)) { return false; }
   switch (keycode) {
     case RGB_SLD:
       if (record->event.pressed) {
